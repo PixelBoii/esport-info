@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
         </Link>
 
         { Object.keys(Games).map(game => (
-          <Link href={game}>
+          <Link href={game} key={game}>
             <a>
               <div className="px-4 py-3 hover:bg-gray-50">
                 <p className="text-gray-700 font-semibold"> { Games[game].name } </p>
