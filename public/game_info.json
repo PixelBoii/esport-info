@@ -11,6 +11,7 @@
     },
     "pubg": {
         "name": "PlayerUnknown Battlegrounds",
+        "banner": "pubg_banner.png",
         "chart_data": "pubg_chart_data.json"
     }
 }
