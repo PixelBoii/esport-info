@@ -2,16 +2,19 @@
     "csgo": {
         "name": "Counter-Strike: Global Offensive",
         "banner": "csgo_inferno.png",
-        "chart_data": "csgo_chart_data.json"
+        "chart_data": "csgo_chart_data.json",
+        "primary_color": "#E5993B"
     },
     "dota-2": {
         "name": "Dota 2",
         "banner": "dota2_banner.png",
-        "chart_data": "dota_2_chart_data.json"
+        "chart_data": "dota_2_chart_data.json",
+        "primary_color": "#753188"
     },
     "pubg": {
         "name": "PlayerUnknown Battlegrounds",
         "banner": "pubg_banner.png",
-        "chart_data": "pubg_chart_data.json"
+        "chart_data": "pubg_chart_data.json",
+        "primary_color": "#9AE66E"
     }
 }
