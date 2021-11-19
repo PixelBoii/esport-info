@@ -6,6 +6,7 @@
     },
     "dota-2": {
         "name": "Dota 2",
+        "banner": "dota2_banner.png",
         "chart_data": "dota_2_chart_data.json"
     },
     "pubg": {
