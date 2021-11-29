@@ -4,7 +4,8 @@ module.exports = {
     return {
       ...config,
       experiments: {
-        topLevelAwait: true
+        topLevelAwait: true,
+        layers: true,
       }
     }
   },
