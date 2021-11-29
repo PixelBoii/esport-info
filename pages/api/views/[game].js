@@ -10,7 +10,7 @@ export default function handler(req, res) {
 
     if (req.method === 'GET') {
         res.json({
-            views: views[game] || 0
+            views: storage.views[game] || 0
         });
     } else if (req.method === 'POST') {
         if (!storage.views[game]) {
