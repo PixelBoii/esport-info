@@ -24,11 +24,16 @@ const maps = [
 export default function Pubg() {
     return (
         <div>
-            <img src={game_details?.banner} className="w-full max-h-64 object-cover" />
+            <div className="flex items-center h-64 bg-center bg-cover bg-no-repeat border-b-[12px] border-pubg" style={{ backgroundImage: `url('${game_details?.banner}')` }}>
+                <div className="container max-w-5xl mx-auto text-center">
+                    <div className="px-16 py-4 w-max rounded bg-pubg mx-auto">
+                        <p className="text-white text-3xl font-bold drop-shadow"> { game_details?.name } </p>
+                    </div>
+                </div>
+            </div>
 
             <div className="py-16 container max-w-5xl mx-auto">
                 <div className="text-center">
-                    <p className="text-gray-700 text-4xl font-bold"> { game_details?.name } </p>
                     <p className="text-gray-700 font-semibold mt-4 leading-7"> PlayerUnknown's Battlegrounds (also known as PUBG: Battlegrounds) is an online multiplayer battle royale game developed and published by PUBG Corporation, a subsidiary of Bluehole. The game is based on previous mods that were created by Brendan "PlayerUnknown" Greene for other games, inspired by the 2000 Japanese film Battle Royale, and expanded into a standalone game under Greene's creative direction. In the game, up to one hundred players parachute onto an island and scavenge for weapons and equipment to kill others while avoiding getting killed themselves. The available safe area of the game's map decreases in size over time, directing surviving players into tighter areas to force encounters. The last player or team standing wins the round. </p>
                 </div>
 

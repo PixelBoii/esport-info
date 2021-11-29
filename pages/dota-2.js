@@ -5,11 +5,16 @@ const game_details = Games['dota-2'];
 export default function Dota2() {
     return (
         <div>
-            <img src={game_details?.banner} className="w-full max-h-64 object-cover" />
+            <div className="flex items-center h-64 bg-center bg-cover bg-no-repeat border-b-[12px] border-dota2" style={{ backgroundImage: `url('${game_details?.banner}')` }}>
+                <div className="container max-w-5xl mx-auto text-center">
+                    <div className="px-16 py-4 w-max rounded bg-dota2 mx-auto">
+                        <p className="text-white text-3xl font-bold drop-shadow"> { game_details?.name } </p>
+                    </div>
+                </div>
+            </div>
 
             <div className="py-16 container max-w-5xl mx-auto">
                 <div className="text-center">
-                    <p className="text-gray-700 text-4xl font-bold"> { game_details?.name } </p>
                     <p className="text-gray-700 font-semibold mt-4 leading-7"> Dota 2 is a multiplayer online battle arena (MOBA) video game developed and published by Valve. The game is a sequel to Defense of the Ancients (DotA), which was a community-created mod for Blizzard Entertainment's Warcraft III: Reign of Chaos. Dota 2 is played in matches between two teams of five players, with each team occupying and defending their own separate base on the map. Each of the ten players independently controls a powerful character, known as a "hero", who all have unique abilities and differing styles of play. During a match players collect experience points and items for their heroes to successfully defeat the opposing team's heroes in player versus player combat. A team wins by being the first to destroy the other team's "Ancient", a large structure located within their base. </p>
                 </div>
 

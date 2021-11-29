@@ -60,21 +60,26 @@ const maps = [
 export default function Game() {
     return (
         <div>
-            <img src={game_details?.banner} className="w-full max-h-64 object-cover" />
+            <div className="flex items-center h-64 bg-center bg-cover bg-no-repeat border-b-[12px] border-csgo" style={{ backgroundImage: `url('${game_details?.banner}')` }}>
+                <div className="container max-w-5xl mx-auto text-center">
+                    <div className="px-16 py-4 w-max rounded bg-csgo mx-auto">
+                        <p className="text-white text-3xl font-bold drop-shadow"> { game_details?.name } </p>
+                    </div>
+                </div>
+            </div>
 
-            <div className="py-16 container max-w-5xl mx-auto">
-                <div className="text-center">
-                    <p className="text-gray-700 text-4xl font-bold"> { game_details?.name } </p>
-                    <p className="text-gray-700 font-semibold mt-4 leading-7"> Counter-Strike: Global Offensive (CS:GO) is a multiplayer first-person shooter developed by Valve and Hidden Path Entertainment. It is the fourth game in the Counter-Strike series. Developed for over two years, Global Offensive was released for Windows, macOS, Xbox 360, and PlayStation 3 in August 2012, and for Linux in 2014. Valve still regularly updates the game, both with smaller balancing patches and larger content additions. </p>
+            <div className="py-8 container max-w-5xl mx-auto">
+                <div className="bg-white px-6 py-4 rounded">
+                    <p className="text-gray-700 font-semibold leading-7"> Counter-Strike: Global Offensive (CS:GO) is a multiplayer first-person shooter developed by Valve and Hidden Path Entertainment. It is the fourth game in the Counter-Strike series. Developed for over two years, Global Offensive was released for Windows, macOS, Xbox 360, and PlayStation 3 in August 2012, and for Linux in 2014. Valve still regularly updates the game, both with smaller balancing patches and larger content additions. </p>
                 </div>
 
-                <div className="mt-12">
+                <div className="mt-8">
                     <p className="text-gray-700 text-2xl font-semibold text-center"> Available maps </p>
 
                     <div className="grid grid-cols-4 gap-2 mt-4">
                         { maps.map(map => (
                             <div className="w-full h-36 bg-cover bg-center bg-no-repeat flex items-end justify-center rounded-md overflow-hidden" style={{ backgroundImage: `url('${map.image_url}')` }} key={map.name}>
-                                <div className="w-full px-3 py-1 bg-gray-700 bg-opacity-20 backdrop-blur-lg text-center">
+                                <div className="w-full px-3 py-1 bg-csgo bg-opacity-50 backdrop-blur-lg text-center">
                                     <p className="text-white text-lg font-semibold"> { map.name } </p>
                                 </div>
                             </div>
