@@ -1,6 +1,8 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import useSWR from 'swr'
 import Games from '../public/game_info.json'
+import { getViews } from './_app.js'
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
 
@@ -23,12 +25,15 @@ const sparklineChartOpts = {
 }
 
 function Game(game, link, chartData) {
+    let { data: views_data } = useSWR(`/api/views/${link}`, getViews)
+
     return (
         <div className="bg-white rounded-md shadow flex flex-col justify-between" key={link}>
             <Link href={`/${link}`}>
                 <a>
                     <div className="px-5 pt-6 pb-2">
                         <p className="text-gray-700 font-semibold text-2xl"> { game.name } </p>
+                        <p className="text-gray-600 fonts-semibold"> { views_data?.views } views </p>
                     </div>
                 </a>
             </Link>
