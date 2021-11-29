@@ -1,8 +1,12 @@
 import Games from '../public/game_info.json'
+import { useEffect } from 'react'
+import { registerView } from './_app.js'
 
 const game_details = Games['dota-2'];
 
 export default function Dota2() {
+    useEffect(() => registerView('dota-2'))
+
     return (
         <div>
             <div className="flex items-center h-64 bg-center bg-cover bg-no-repeat border-b-[12px] border-dota2" style={{ backgroundImage: `url('${game_details?.banner}')` }}>

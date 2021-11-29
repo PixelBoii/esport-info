@@ -1,4 +1,6 @@
 import Games from '../public/game_info.json'
+import { useEffect } from 'react'
+import { registerView } from './_app.js'
 
 const game_details = Games['pubg'];
 
@@ -22,6 +24,8 @@ const maps = [
 ];
 
 export default function Pubg() {
+    useEffect(() => registerView('pubg'))
+
     return (
         <div>
             <div className="flex items-center h-64 bg-center bg-cover bg-no-repeat border-b-[12px] border-pubg" style={{ backgroundImage: `url('${game_details?.banner}')` }}>

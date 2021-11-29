@@ -1,4 +1,6 @@
 import Games from '../public/game_info.json'
+import { registerView } from './_app.js'
+import { useEffect } from 'react'
 
 const game_details = Games['csgo'];
 
@@ -58,6 +60,8 @@ const maps = [
 ];
 
 export default function Game() {
+    useEffect(() => registerView('csgo'))
+
     return (
         <div>
             <div className="flex items-center h-64 bg-center bg-cover bg-no-repeat border-b-[12px] border-csgo" style={{ backgroundImage: `url('${game_details?.banner}')` }}>
