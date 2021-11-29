@@ -43,7 +43,7 @@ export default function Pubg() {
                     <div className="grid grid-cols-4 gap-2 mt-4">
                         { maps.map(map => (
                             <div className="w-full h-36 bg-cover bg-center bg-no-repeat flex items-end justify-center rounded-md overflow-hidden" style={{ backgroundImage: `url('${map.image_url}')` }} key={map.name}>
-                                <div className="w-full px-3 py-1 bg-gray-700 bg-opacity-20 backdrop-blur-lg text-center">
+                                <div className="w-full px-3 py-1 bg-pubg bg-opacity-60 backdrop-blur-lg text-center">
                                     <p className="text-white text-lg font-semibold"> { map.name } </p>
                                 </div>
                             </div>
