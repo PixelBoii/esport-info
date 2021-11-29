@@ -3,7 +3,13 @@ module.exports = {
   mode: 'jit',
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        csgo: '#E5993B',
+        dota2: '#753188',
+        pubg: '#9AE66E'
+      }
+    },
   },
   variants: {
     extend: {},
