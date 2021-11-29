@@ -2,6 +2,16 @@ import 'tailwindcss/tailwind.css'
 import Link from 'next/link'
 import Games from '../public/game_info.json'
 
+export async function getViews(...args) {
+  return fetch(...args).then(res => res.json());
+}
+
+export async function registerView(game) {
+  return fetch(`/api/views/${game}`, {
+    method: 'POST',
+  });
+}
+
 function MyApp({ Component, pageProps }) {
   return (
     <div>
