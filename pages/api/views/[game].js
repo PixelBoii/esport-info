@@ -21,6 +21,6 @@ export default function handler(req, res) {
 
         res.status(200).end();
 
-        fs.writeFile('../storage.json', JSON.stringify(storage));
+        fs.writeFileSync('../storage.json', JSON.stringify(storage));
     }
 }
