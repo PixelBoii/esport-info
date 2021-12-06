@@ -1,17 +1,8 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import useSWR from 'swr'
-import Games from '../public/game_info.json'
-import { getViews } from './_app.js'
+import { useEffect, useState } from 'react'
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false })
-
-const ChartData = await Object.keys(Games).reduce(async (chart_data, game) => {
-    return {
-        ...await chart_data,
-        [game]: (await import(`../public/${Games[game].chart_data}`)).default
-    }
-}, {})
 
 const sparklineChartOpts = {
     chart: {
@@ -24,8 +15,12 @@ const sparklineChartOpts = {
     },
 }
 
-function Game(game, link, chartData) {
-    let { data: views_data } = useSWR(`/api/views/${link}`, getViews)
+function Game(game, link) {
+    const [chartData, setChartData] = useState([]);
+
+    useEffect(async () => {
+        setChartData((await import(`../public/${game.chart_data}.json`)).default);
+    }, []);
 
     return (
         <div className="bg-white rounded-md shadow flex flex-col justify-between" key={link}>
@@ -33,7 +28,7 @@ function Game(game, link, chartData) {
                 <a>
                     <div className="px-5 pt-6 pb-2">
                         <p className="text-gray-700 font-semibold text-2xl"> { game.name } </p>
-                        <p className="text-gray-600 fonts-semibold"> { views_data?.views } views </p>
+                        <p className="text-gray-600 fonts-semibold"> { game.views } views </p>
                     </div>
                 </a>
             </Link>
@@ -57,7 +52,7 @@ function Game(game, link, chartData) {
     )
 }
 
-export default function Home() {
+export default function Home({ games }) {
     return (
         <div>
             <div className="bg-gray-100 w-full">
@@ -68,7 +63,7 @@ export default function Home() {
 
             <div className="container max-5xl mx-auto px-2">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 -mt-8">
-                    { Object.keys(Games).map(game => Game(Games[game], game, ChartData[game])) }
+                    { Object.keys(games).map(game => Game(games[game], game)) }
                 </div>
             </div>
         </div>

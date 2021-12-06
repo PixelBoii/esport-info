@@ -1,8 +1,6 @@
-import Games from '../public/game_info.json'
-import { registerView } from './_app.js'
 import { useEffect } from 'react'
-
-const game_details = Games['csgo'];
+import { app } from '../firebase'
+import { getFirestore, updateDoc, doc, increment } from 'firebase/firestore'
 
 const maps = [
     {
@@ -59,15 +57,21 @@ const maps = [
     }
 ];
 
-export default function Game() {
-    useEffect(() => registerView('csgo'))
+export default function Game({ games }) {
+    let game = games['csgo'];
+
+    useEffect(async () => {
+        updateDoc(doc(getFirestore(app), 'games', game.id), {
+            views: increment(1)
+        })
+    }, [])
 
     return (
         <div>
-            <div className="flex items-center h-64 bg-center bg-cover bg-no-repeat border-b-[12px] border-csgo" style={{ backgroundImage: `url('${game_details?.banner}')` }}>
+            <div className="flex items-center h-64 bg-center bg-cover bg-no-repeat border-b-[12px] border-csgo" style={{ backgroundImage: `url('${game?.banner}')` }}>
                 <div className="container max-w-5xl mx-auto text-center">
                     <div className="px-16 py-4 w-max rounded bg-csgo mx-auto">
-                        <p className="text-white text-3xl font-bold drop-shadow"> { game_details?.name } </p>
+                        <p className="text-white text-3xl font-bold drop-shadow"> { game?.name } </p>
                     </div>
                 </div>
             </div>
