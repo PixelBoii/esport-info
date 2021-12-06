@@ -1,7 +1,7 @@
 import 'tailwindcss/tailwind.css'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import app from '../firebase'
+import { app } from '../firebase'
 import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 export async function getGames() {
